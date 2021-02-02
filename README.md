@@ -21,8 +21,8 @@ A sugestão serve como guideline para o desenvolvimento do desafio mas fique a v
 
 ● Crie uma tela de acompanhamento com informações com:
 
-○ Total de Receitas e Despesas no mês atual; 
-○ Gráficos; 
+  ○ Total de Receitas e Despesas no mês atual; 
+  ○ Gráficos; 
 
 ○ informações que achar interessante; 
 
