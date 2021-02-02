@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Mobillis</string>
+    <string name="add_new_item">adicionar novo financialItem</string>
 </resources>
