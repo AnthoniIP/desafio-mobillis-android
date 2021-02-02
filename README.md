@@ -10,18 +10,28 @@ Desenvolver uma aplicação mobile nativa usando Kotlin, de um gerenciador de co
 A sugestão serve como guideline para o desenvolvimento do desafio mas fique a vontade para nos surpreender. 
 
 ● Material Components 
+
 ● Firebase (Firestore/Authentication/Storage) 
+
 ● Glide 
+
 ● Architecture (MVP/MVVM) 
+
 # Extras 
 
-● Crie uma tela de acompanhamento com informações com 
+● Crie uma tela de acompanhamento com informações com:
+
 ○ Total de Receitas e Despesas no mês atual; 
 ○ Gráficos; 
+
 ○ informações que achar interessante; 
+
 ● Adicionar anexos em Despesas/Receitas 
+
 ● Unit test (Mockk/Mockito) 
+
 ● Dependency Injection 
+
 # Processo de submissão 
 
 O candidato deverá implementar a solução e disponibilizar em um repositório no Github. Além de nos enviar por email uma versão executável (APK) com as chaves habilitadas, se necessárias.
