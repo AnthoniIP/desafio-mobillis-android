@@ -2,11 +2,11 @@ package com.ipsoft.mobillis.ui.details
 
 import android.os.Bundle
 import android.view.*
-import androidx.appcompat.widget.ShareActionProvider
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.ipsoft.mobillis.R
 import com.ipsoft.mobillis.data.model.FinancialItem
+import com.ipsoft.mobillis.data.model.Type
 import com.ipsoft.mobillis.databinding.FragmentItemDetailsBinding
 import com.ipsoft.mobillis.ui.form.ItemFormFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -23,7 +23,6 @@ class ItemDetailsFragment : Fragment() {
     private lateinit var binding: FragmentItemDetailsBinding
     private val viewModel: ItemDetailsViewModel by viewModel()
     private var finantialItem: FinancialItem? = null
-    private var shareActionProvider: ShareActionProvider? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,8 +56,22 @@ class ItemDetailsFragment : Fragment() {
         })
     }
 
+    private fun errorItemNotFound() {
+
+        binding.txtDescricao.text = getString(R.string.error_item_not_found)
+
+    }
+
     private fun showItemDetails(item: FinancialItem) {
         this.finantialItem = item
+        val imageGreen = resources.getDrawable(R.drawable.ic_green_arrow)
+        val imageRed = resources.getDrawable(R.drawable.ic_red_arrow)
+
+        binding.checkConcluido.visibility = if (item.isDone) View.VISIBLE else View.INVISIBLE
+        binding.itemIcon.setImageDrawable(if (item.type == Type.RECEITA) imageGreen else imageRed)
+        binding.txtData.text = item.data.toString()
+        binding.txtDescricao.text = item.description
+        binding.txtValor.text = item.value.toString()
 
 
     }
@@ -79,7 +92,17 @@ class ItemDetailsFragment : Fragment() {
     }
 
     companion object {
+        const val TAG_DETAILS = "tagDetalhe"
         const val EXTRA_ITEM_ID = "item_id"
+
+        fun newInstance(id: Long) = ItemDetailsFragment().apply {
+            arguments = Bundle().apply {
+                putLong(EXTRA_ITEM_ID, id)
+            }
+
+        }
+
+
     }
 
 
