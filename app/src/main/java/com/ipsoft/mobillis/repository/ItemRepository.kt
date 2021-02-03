@@ -12,9 +12,11 @@ import com.ipsoft.mobillis.data.model.FinancialItem
 
 interface ItemRepository {
 
-    fun save(financialItem: FinancialItem)
+    fun update(item: FinancialItem)
+    fun save(item: FinancialItem)
     fun remove(vararg financialItems: FinancialItem)
     fun itemById(id: Long) : LiveData<FinancialItem>
+    fun getAllItem() : LiveData<List<FinancialItem>>
 
 
 }

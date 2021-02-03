@@ -1,23 +1,26 @@
 package com.ipsoft.mobillis.ui.main
 
-import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.ipsoft.mobillis.R
 import com.ipsoft.mobillis.data.model.FinancialItem
 import com.ipsoft.mobillis.databinding.ActivityMainBinding
-import com.ipsoft.mobillis.util.CellClickListener
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import com.ipsoft.mobillis.ui.form.ItemFormFragment
+import com.ipsoft.mobillis.ui.list.ItemListFragment
 
-class MainActivity : AppCompatActivity(), CellClickListener {
+class MainActivity : AppCompatActivity(),
+ItemListFragment.OnItemClickListener,
+MenuItem.OnActionExpandListener{
 
+    private val listFragment: ItemListFragment by lazy {
+        supportFragmentManager.findFragmentById(R.id.fragmentList) as ItemListFragment
+    }
     private lateinit var mainBinding: ActivityMainBinding
-    private lateinit var recyclerView: RecyclerView
-    private val viewModel: MainActivityViewModel by viewModel()
+
 
     // Iniciando a RecyclerView
-    var itemAdapter: ItemAdapter? = null
+    private var itemAdapter: ItemAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,29 +28,18 @@ class MainActivity : AppCompatActivity(), CellClickListener {
         var view = mainBinding.root
         setContentView(view)
 
-        //initRecyclerView()
+        mainBinding.fabAdd.setOnClickListener {
+            listFragment.hideDeleteMode()
+            ItemFormFragment.newInstance().open(supportFragmentManager)
 
-    }
-
-    private fun initRecyclerView(list: List<FinancialItem>) {
-
-        recyclerView = mainBinding.rvItems
-        itemAdapter = ItemAdapter(list, this, this)
-        recyclerView.adapter = itemAdapter
-        recyclerView.setHasFixedSize(true)
-
-        val llm = LinearLayoutManager(this)
-        llm.isAutoMeasureEnabled = false
-        recyclerView.layoutManager = llm
+        }
 
 
     }
 
-    override fun onCellClickListener(data: FinancialItem) {
-//        val intent = Intent(this, CheckingCopyAcitivity::class.java)
-//        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP
-//        intent.putExtra("id", data.id)
-//        startActivity(intent)
+    override fun onItemClick(item: FinancialItem) {
+        TODO("Not yet implemented")
     }
+
 
 }

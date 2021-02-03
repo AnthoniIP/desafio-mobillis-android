@@ -74,13 +74,13 @@ class ItemFormFragment : DialogFragment() {
 
     }
 
-    fun errorInvalidItem() {
+    private fun errorInvalidItem() {
 
         Toast.makeText(requireContext(), R.string.error_invalid_item, Toast.LENGTH_SHORT).show()
 
     }
 
-    fun errorSaveItem() {
+    private fun errorSaveItem() {
         Toast.makeText(requireContext(), R.string.error_item_not_found, Toast.LENGTH_SHORT).show()
     }
 

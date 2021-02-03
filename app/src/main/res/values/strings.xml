@@ -10,4 +10,13 @@
     <string name="form_label_Value">Valor</string>
     <string name="form_label_data">Data</string>
     <string name="action_new_item">Novo Item</string>
+
+    <plurals name="list_item_selected">
+        <item quantity="one">1 selecionado</item>
+        <item quantity="other">%d selecionados</item>
+    </plurals>
+    <string name="message_items_deleted">%d itens excluídos.</string>
+    <string name="undo">Desfazer</string>
+    <string name="action_delete">Deletar</string>
+    <string name="action_edit">Editar</string>
 </resources>

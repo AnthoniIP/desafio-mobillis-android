@@ -14,13 +14,17 @@ import com.ipsoft.mobillis.repository.ItemRepository
 class RoomRepository(database: ItemDatabase) : ItemRepository {
 
     private val itemDao = database.itemDao()
-    override fun save(financialItem: FinancialItem) {
-        if (financialItem.id == 0L) {
-            val id = itemDao.insert(financialItem)
-            financialItem.id = id
+    override fun save(item: FinancialItem) {
+        if (item.id == 0L) {
+            val id = itemDao.insert(item)
+            item.id = id
         } else {
-            itemDao.update(financialItem)
+            itemDao.update(item)
         }
+    }
+
+    override fun update(item: FinancialItem) {
+        itemDao.update(item)
     }
 
     override fun remove(vararg financialItems: FinancialItem) {
@@ -29,5 +33,9 @@ class RoomRepository(database: ItemDatabase) : ItemRepository {
 
     override fun itemById(id: Long): LiveData<FinancialItem> {
         return itemDao.itemById(id)
+    }
+
+    override fun getAllItem(): LiveData<List<FinancialItem>> {
+        return itemDao.getAll()
     }
 }

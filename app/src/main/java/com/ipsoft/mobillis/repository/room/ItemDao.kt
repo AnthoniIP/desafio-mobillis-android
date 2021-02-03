@@ -28,4 +28,7 @@ interface ItemDao {
     @Query("SELECT * FROM $TABLE_CONTROL WHERE $COLUMN_ID = :id")
     fun itemById(id: Long): LiveData<FinancialItem>
 
+    @Query("""SELECT * FROM $TABLE_CONTROL ORDER BY $COLUMN_ID""")
+    fun getAll(): LiveData<List<FinancialItem>>
+
 }

@@ -67,11 +67,11 @@ class SQLiteRepository(ctx: Context) : ItemRepository {
 
     }
 
-    override fun save(financialItem: FinancialItem) {
-        if (financialItem.id != 0L) {
-            insert(financialItem)
+    override fun save(item: FinancialItem) {
+        if (item.id != 0L) {
+            insert(item)
         } else {
-            update(financialItem)
+            update(item)
         }
     }
 

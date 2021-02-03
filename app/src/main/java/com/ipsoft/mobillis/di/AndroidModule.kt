@@ -1,10 +1,11 @@
 package com.ipsoft.mobillis.di
 
+import com.ipsoft.mobillis.repository.ItemRepository
 import com.ipsoft.mobillis.repository.room.ItemDatabase
 import com.ipsoft.mobillis.repository.room.RoomRepository
-import com.ipsoft.mobillis.repository.sqlite.SQLiteRepository
+import com.ipsoft.mobillis.ui.details.ItemDetailsViewModel
 import com.ipsoft.mobillis.ui.form.ItemFormViewModel
-import com.ipsoft.mobillis.ui.main.MainActivityViewModel
+import com.ipsoft.mobillis.ui.list.ItemListViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -18,15 +19,17 @@ import org.koin.dsl.module
 val androidModule = module {
 
     single { this }
-    single { SQLiteRepository(ctx = get()) }
-    single { RoomRepository(database = get()) }
-    single { ItemDatabase.getDatabase(context = get()) }
+    single { RoomRepository(ItemDatabase.getDatabase(context = get())) as ItemRepository }
     viewModel {
-        MainActivityViewModel(repository = get())
+        ItemListViewModel(repository = get())
     }
     viewModel {
         ItemFormViewModel(repository = get())
     }
+    viewModel {
+        ItemDetailsViewModel(repository = get())
+    }
+
 
 
 }
