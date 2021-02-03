@@ -2,10 +2,10 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    android:id="@+id/item_card"
     android:checkable="true"
     android:clickable="true"
     android:focusable="true">
@@ -18,7 +18,7 @@
 
 
         <ImageView
-            android:id="@+id/item_photo"
+            android:id="@+id/item_icon"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_alignParentStart="true"
@@ -30,64 +30,48 @@
             tools:ignore="ContentDescription" />
 
 
-
         <!-- The age, in the bottom -->
         <TextView
             android:id="@+id/txt_valor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txt_descricao"
-            android:layout_toEndOf="@+id/item_photo"
-            android:layout_toRightOf="@+id/item_photo"
+            android:layout_toEndOf="@+id/item_icon"
+            android:layout_toRightOf="@+id/item_icon"
             tools:text="R$ 200,00" />
 
 
         <TextView
+            android:layout_marginTop="18dp"
             android:id="@+id/txt_descricao"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_toEndOf="@+id/item_photo"
-            android:layout_toRightOf="@+id/item_photo"
+            android:layout_toEndOf="@+id/item_icon"
+            android:layout_toRightOf="@+id/item_icon"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Descrição" />
 
-
-
-
-
-
         <TextView
-            android:id="@+id/txt_recebido"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/txt_valor"
-            android:layout_toEndOf="@+id/item_photo"
-            android:layout_toRightOf="@+id/item_photo"
-            android:textStyle="bold"
-            tools:text="Recebido" />
-
-
-        <TextView
-           android:layout_alignBottom="@id/item_photo"
-            android:layout_alignParentEnd="true"
             android:id="@+id/txt_data"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="10/12"
-            android:layout_alignParentRight="true" />
+            android:layout_alignBottom="@id/item_icon"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            tools:text="10/12" />
 
 
         <ImageView
             android:id="@+id/check_concluido"
-            android:layout_alignParentRight="true"
-            android:layout_alignTop="@id/item_photo"
-            android:src="@drawable/ic_baseline_check_circle_24"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/item_icon"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_baseline_check_circle_24" />
 
     </RelativeLayout>
 

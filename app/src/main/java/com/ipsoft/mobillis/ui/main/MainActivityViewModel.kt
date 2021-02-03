@@ -10,5 +10,6 @@ import com.ipsoft.mobillis.repository.ControleRepository
  *  Date:       02/02/2021
  */
 
-class MainActivityViewModel(controleRepository: ControleRepository) : ViewModel() {
+class MainActivityViewModel(repository: ControleRepository) : ViewModel() {
+
 }

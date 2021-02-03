@@ -11,7 +11,7 @@ import com.ipsoft.mobillis.data.model.FinancialItem
 
 interface NewItemView {
 
-    fun showHotel(financialItem: FinancialItem)
+    fun showItem(financialItem: FinancialItem)
     fun errorInvalidItem()
     fun errorSaveItem()
 

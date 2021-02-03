@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">Mobillis</string>
     <string name="add_new_item">adicionar novo financialItem</string>
+    <string name="error_item_not_found">Item não encontrado</string>
+    <string name="error_invalid_item">Item não preenchido corretamente</string>
+    <string name="form_label_description">Descrição</string>
+    <string name="salvar">Salvar</string>
+    <string name="despesa">Despesa</string>
+    <string name="receita">Receita</string>
+    <string name="form_label_Value">Valor</string>
+    <string name="form_label_data">Data</string>
 </resources>
