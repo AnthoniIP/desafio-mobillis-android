@@ -1,5 +1,6 @@
 package com.ipsoft.mobillis.repository
 
+import androidx.lifecycle.LiveData
 import com.ipsoft.mobillis.data.model.FinancialItem
 
 /**
@@ -9,11 +10,11 @@ import com.ipsoft.mobillis.data.model.FinancialItem
  *  Date:       02/02/2021
  */
 
-interface ControleRepository {
+interface ItemRepository {
 
     fun save(financialItem: FinancialItem)
     fun remove(vararg financialItems: FinancialItem)
-    fun itemById(id: Long, callback: (FinancialItem?) -> Unit)
+    fun itemById(id: Long) : LiveData<FinancialItem>
 
 
 }

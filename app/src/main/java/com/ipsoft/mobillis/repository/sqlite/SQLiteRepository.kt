@@ -6,7 +6,7 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import com.ipsoft.mobillis.data.model.FinancialItem
 import com.ipsoft.mobillis.data.model.Type
-import com.ipsoft.mobillis.repository.ControleRepository
+import com.ipsoft.mobillis.repository.ItemRepository
 import java.util.*
 
 /**
@@ -16,9 +16,9 @@ import java.util.*
  *  Date:       02/02/2021
  */
 
-class SQLiteRepository(cxt: Context) : ControleRepository {
+class SQLiteRepository(ctx: Context) : ItemRepository {
 
-    private val helper: ControleFinanceiroHelper = ControleFinanceiroHelper(cxt)
+    private val helper: ControleFinanceiroHelper = ControleFinanceiroHelper(ctx)
 
     private fun insert(financialItem: FinancialItem) {
 

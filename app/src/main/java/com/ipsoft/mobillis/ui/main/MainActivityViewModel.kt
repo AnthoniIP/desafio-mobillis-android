@@ -1,7 +1,7 @@
 package com.ipsoft.mobillis.ui.main
 
 import androidx.lifecycle.ViewModel
-import com.ipsoft.mobillis.repository.ControleRepository
+import com.ipsoft.mobillis.repository.ItemRepository
 
 /**
  *
@@ -10,6 +10,10 @@ import com.ipsoft.mobillis.repository.ControleRepository
  *  Date:       02/02/2021
  */
 
-class MainActivityViewModel(repository: ControleRepository) : ViewModel() {
+class MainActivityViewModel(repository: ItemRepository) : ViewModel() {
+
+
+
+
 
 }
