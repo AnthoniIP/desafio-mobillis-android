@@ -4,9 +4,9 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.ipsoft.mobillis.data.model.FinancialItem
-import com.ipsoft.mobillis.repository.sqlite.DATABASE_NAME
-import com.ipsoft.mobillis.repository.sqlite.DATABASE_VERSION
+import com.ipsoft.mobillis.repository.sqlite.*
 
 /**
  *
@@ -15,6 +15,7 @@ import com.ipsoft.mobillis.repository.sqlite.DATABASE_VERSION
  *  Date:       03/02/2021
  */
 @Database(entities = [FinancialItem::class], version = DATABASE_VERSION)
+@TypeConverters(Converters::class)
 abstract class ItemDatabase : RoomDatabase() {
 
     abstract fun itemDao(): ItemDao
@@ -27,8 +28,7 @@ abstract class ItemDatabase : RoomDatabase() {
                 instance == Room.databaseBuilder(
                     context.applicationContext,
                     ItemDatabase::class.java,
-                    DATABASE_NAME
-                )
+                    DATABASE_NAME)
                     .allowMainThreadQueries()
                     .build()
             }

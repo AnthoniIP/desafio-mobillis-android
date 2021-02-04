@@ -1,5 +1,7 @@
 package com.ipsoft.mobillis.ui.details
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.ipsoft.mobillis.R
@@ -9,7 +11,6 @@ class ItemDetailsActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityItemDetailsBinding
     private val itemId: Long by lazy { intent.getLongExtra(EXTRA_ITEM_ID, -1) }
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +23,7 @@ class ItemDetailsActivity : AppCompatActivity() {
             showItemDetailsFragment()
         }
     }
+
     private fun showItemDetailsFragment() {
         val fragment = ItemDetailsFragment.newInstance(itemId)
         supportFragmentManager
@@ -35,5 +37,12 @@ class ItemDetailsActivity : AppCompatActivity() {
 
     companion object {
         private const val EXTRA_ITEM_ID = "item_id"
+        fun open(activity: Activity, hotelId: Long) {
+            activity.startActivityForResult(
+                Intent(activity, ItemDetailsActivity::class.java).apply {
+                    putExtra(EXTRA_ITEM_ID, hotelId)
+                }, 0
+            )
+        }
     }
 }

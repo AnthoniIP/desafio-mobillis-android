@@ -67,7 +67,7 @@ class ItemFormFragment : DialogFragment() {
         binding.edtDescription.setText(financialItem.description)
         binding.edtValue.setText(financialItem.value.toString())
 
-        if (financialItem.type == Type.RECEITA) binding.rdgType.check(R.id.rdb_receita) else
+        if (financialItem.type == Type.INCOME) binding.rdgType.check(R.id.rdb_receita) else
             binding.rdgType.check(R.id.rdb_despesa)
         binding.ckbDone.isChecked = financialItem.isDone
 

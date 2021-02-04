@@ -14,9 +14,11 @@ import com.ipsoft.mobillis.ui.common.SingleLiveEvent
  *  Date:       02/02/2021
  */
 
-class ItemListViewModel(private val repository: ItemRepository) : ViewModel() {
+class ItemListViewModel(
+    private val repository: ItemRepository
+) : ViewModel() {
 
-    val itemIdSelected: Long = -1
+    var itemIdSelected: Long = -1
     private val items = repository.getAllItem()
 
     private val inDeleteMode = MutableLiveData<Boolean>().apply {
@@ -35,7 +37,7 @@ class ItemListViewModel(private val repository: ItemRepository) : ViewModel() {
 
     fun selectionCount(): LiveData<Int> = selectionCount
 
-    fun selectedHotels(): LiveData<List<FinancialItem>> = selectedFinantialItems
+    fun selectedItems(): LiveData<List<FinancialItem>> = selectedFinantialItems
 
     fun showDeletedMessage(): LiveData<Int> = showDeletedMessage
 
@@ -87,9 +89,9 @@ class ItemListViewModel(private val repository: ItemRepository) : ViewModel() {
 
     fun undoDelete() {
         if (deletedItems.isNotEmpty()) {
-            for (hotel in deletedItems) {
-                hotel.id = 0L
-                repository.save(hotel)
+            for (item in deletedItems) {
+                item.id = 0L
+                repository.save(item)
             }
         }
     }

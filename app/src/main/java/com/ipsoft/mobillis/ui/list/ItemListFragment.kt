@@ -45,9 +45,9 @@ class ItemListFragment : ListFragment(),
                 hideDeleteMode()
             }
         })
-        viewModel.selectedHotels().observe(viewLifecycleOwner, Observer { hotels ->
-            if (hotels != null) {
-                showSelectedHotels(hotels)
+        viewModel.selectedItems().observe(viewLifecycleOwner, Observer { items ->
+            if (items != null) {
+                showSelectedItems(items)
             }
         })
         viewModel.selectionCount().observe(viewLifecycleOwner, Observer { count ->
@@ -57,20 +57,20 @@ class ItemListFragment : ListFragment(),
         })
         viewModel.showDeletedMessage().observe(viewLifecycleOwner, Observer { count ->
             if (count != null && count > 0) {
-                showMessageHotelsDeleted(count)
+                showMessageItemsDeleted(count)
             }
         })
-        viewModel.getItems()?.observe(viewLifecycleOwner, Observer { hotels ->
-            if (hotels != null) {
-                showHotels(hotels)
+        viewModel.getItems()?.observe(viewLifecycleOwner, Observer { items ->
+            if (items != null) {
+                showItems(items)
             }
         })
 
 
     }
 
-    private fun showHotels(hotels: List<FinancialItem>) {
-        val adapter = ItemAdapter(requireContext(), hotels)
+    private fun showItems(items: List<FinancialItem>) {
+        val adapter = ItemAdapter(requireContext(), items)
         listAdapter = adapter
     }
 
@@ -108,7 +108,7 @@ class ItemListFragment : ListFragment(),
         listView.choiceMode = ListView.CHOICE_MODE_MULTIPLE
     }
 
-     fun hideDeleteMode() {
+    fun hideDeleteMode() {
         listView.onItemLongClickListener = this
         for (i in 0 until listView.count) {
             listView.setItemChecked(i, false)
@@ -126,18 +126,18 @@ class ItemListFragment : ListFragment(),
         }
     }
 
-    private fun showSelectedHotels(hotels: List<FinancialItem>) {
+    private fun showSelectedItems(items: List<FinancialItem>) {
         listView.post {
             for (i in 0 until listView.count) {
                 val item = listView.getItemAtPosition(i) as FinancialItem
-                if (hotels.find { it.id == item.id } != null) {
+                if (items.find { it.id == item.id } != null) {
                     listView.setItemChecked(i, true)
                 }
             }
         }
     }
 
-    private fun showMessageHotelsDeleted(count: Int) {
+    private fun showMessageItemsDeleted(count: Int) {
         Snackbar.make(
             listView,
             getString(R.string.message_items_deleted, count),

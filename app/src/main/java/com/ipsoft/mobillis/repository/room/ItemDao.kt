@@ -3,9 +3,7 @@ package com.ipsoft.mobillis.repository.room
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.ipsoft.mobillis.data.model.FinancialItem
-import com.ipsoft.mobillis.repository.sqlite.COLUMN_ID
-import com.ipsoft.mobillis.repository.sqlite.TABLE_CONTROL
-
+import com.ipsoft.mobillis.repository.sqlite.*
 /**
  *
  *  Author:     Anthoni Ipiranga
@@ -29,6 +27,6 @@ interface ItemDao {
     fun itemById(id: Long): LiveData<FinancialItem>
 
     @Query("""SELECT * FROM $TABLE_CONTROL ORDER BY $COLUMN_ID""")
-    fun getAll(): LiveData<List<FinancialItem>>
+    fun getAllItem(): LiveData<List<FinancialItem>>
 
 }

@@ -11,9 +11,12 @@ import com.ipsoft.mobillis.repository.ItemRepository
  *  Date:       03/02/2021
  */
 
-class RoomRepository(database: ItemDatabase) : ItemRepository {
+class RoomRepository(
+    database: ItemDatabase
+) : ItemRepository {
 
     private val itemDao = database.itemDao()
+
     override fun save(item: FinancialItem) {
         if (item.id == 0L) {
             val id = itemDao.insert(item)
@@ -36,6 +39,6 @@ class RoomRepository(database: ItemDatabase) : ItemRepository {
     }
 
     override fun getAllItem(): LiveData<List<FinancialItem>> {
-        return itemDao.getAll()
+        return itemDao.getAllItem()
     }
 }

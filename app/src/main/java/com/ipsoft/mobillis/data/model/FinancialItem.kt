@@ -24,9 +24,9 @@ data class FinancialItem(
     var description: String = "",
     var data: Date = Date(),
     var isDone: Boolean = false,
-    val type: Type = Type.DESPESA,
+    val type: Type = Type.COST
 )
 
 enum class Type {
-    RECEITA, DESPESA
+    INCOME, COST
 }

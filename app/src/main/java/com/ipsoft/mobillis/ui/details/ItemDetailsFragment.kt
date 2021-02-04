@@ -68,7 +68,7 @@ class ItemDetailsFragment : Fragment() {
         val imageRed = resources.getDrawable(R.drawable.ic_red_arrow)
 
         binding.checkConcluido.visibility = if (item.isDone) View.VISIBLE else View.INVISIBLE
-        binding.itemIcon.setImageDrawable(if (item.type == Type.RECEITA) imageGreen else imageRed)
+        binding.itemIcon.setImageDrawable(if (item.type == Type.INCOME) imageGreen else imageRed)
         binding.txtData.text = item.data.toString()
         binding.txtDescricao.text = item.description
         binding.txtValor.text = item.value.toString()

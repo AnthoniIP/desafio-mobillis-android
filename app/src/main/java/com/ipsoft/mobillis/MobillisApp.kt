@@ -14,6 +14,7 @@ import org.koin.standalone.StandAloneContext.stopKoin
 
 class MobillisApp : Application() {
 
+
     override fun onCreate() {
         super.onCreate()
         startKoin(this, listOf(androidModule))

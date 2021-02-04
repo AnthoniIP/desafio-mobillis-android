@@ -6,8 +6,8 @@ import com.ipsoft.mobillis.repository.room.RoomRepository
 import com.ipsoft.mobillis.ui.details.ItemDetailsViewModel
 import com.ipsoft.mobillis.ui.form.ItemFormViewModel
 import com.ipsoft.mobillis.ui.list.ItemListViewModel
-import org.koin.androidx.viewmodel.dsl.viewModel
-import org.koin.dsl.module
+import org.koin.androidx.viewmodel.ext.koin.viewModel
+import org.koin.dsl.module.module
 
 /**
  *
@@ -17,19 +17,19 @@ import org.koin.dsl.module
  */
 
 val androidModule = module {
-
     single { this }
-    single { RoomRepository(ItemDatabase.getDatabase(context = get())) as ItemRepository }
+    single {
+        RoomRepository(ItemDatabase.getDatabase(context = get())) as ItemRepository
+    }
     viewModel {
         ItemListViewModel(repository = get())
     }
     viewModel {
-        ItemFormViewModel(repository = get())
-    }
-    viewModel {
         ItemDetailsViewModel(repository = get())
     }
-
+    viewModel {
+        ItemFormViewModel(repository = get())
+    }
 
 
 }

@@ -38,7 +38,7 @@ class ItemAdapter(
         var isDone = item.isDone
 
         holder.description.text = item.description
-        holder.image.setImageDrawable(if (item.type == Type.RECEITA) imageGreen else imageRed)
+        holder.image.setImageDrawable(if (item.type == Type.INCOME) imageGreen else imageRed)
         holder.isDone.visibility = if (isDone) VISIBLE else INVISIBLE
         holder.date.text = item.data.toString()
 

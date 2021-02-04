@@ -44,7 +44,7 @@ class ItemAdapter(context: Context, items: List<FinancialItem>) :
             viewHolder.description.text = item.description
         }
         if (item != null) {
-            viewHolder.image.setImageDrawable(if (item.type == Type.RECEITA) imageGreen else imageRed)
+            viewHolder.image.setImageDrawable(if (item.type == Type.INCOME) imageGreen else imageRed)
         }
         viewHolder.isDone.visibility = if (isDone == true) View.VISIBLE else View.INVISIBLE
         if (item != null) {
